@@ -8,6 +8,6 @@ COPY docs ./docs
 COPY scripts ./scripts
 COPY README.md technical_report.md Makefile ./
 RUN mkdir -p /app/runtime
-ENV PYTHONPATH=/app
+ENV PYTHONPATH=/app/src
 EXPOSE 8000
 CMD ["sh","-c","uvicorn mirror_ai.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
