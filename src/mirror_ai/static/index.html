@@ -3,50 +3,161 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mirror AI</title>
+  <meta name="description" content="Mirror AI turns cross-border needs into structured local paths, powered by Apertus 1.5.">
+  <title>Mirror AI — From global demand to the right local path</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
   <header class="nav">
-    <div class="brand">MIRROR<span>AI</span></div>
-    <a href="#start">Start an enquiry</a>
+    <a class="brand" href="/">MIRROR<span>AI</span></a>
+    <div class="nav-meta">
+      <span>APERTUS 1.5</span>
+      <a href="#services">Explore services</a>
+      <a href="#start">Start an enquiry</a>
+    </div>
   </header>
 
   <main>
     <section class="hero">
-      <div id="apertus-label" class="eyebrow">APERTUS 1.5</div>
-      <h1>From global demand<br>to the right <em>local path.</em></h1>
-      <p>Describe what you need. Mirror AI structures your request, matches available resources, and hands qualified enquiries to a human operator.</p>
-      <a class="button" href="#start">Start an enquiry</a>
-      <div id="mode" class="muted">Mode: loading</div>
+      <div class="hero-top">
+        <div class="eyebrow">A HUMAN-LED INTERFACE FOR CROSS-BORDER BUSINESS</div>
+        <div id="mode" class="mode">Checking inference mode…</div>
+      </div>
+
+      <div class="hero-copy">
+        <h1>From global demand<br>to the right <em>local path.</em></h1>
+        <p class="hero-lede">
+          Mirror AI turns an unstructured cross-border request into a clear service intent,
+          the information still needed, and a relevant local resource to follow up.
+        </p>
+        <a class="text-link" href="#services">Explore what you can do <span>↘</span></a>
+      </div>
+
+      <div class="hero-process" aria-label="Mirror AI workflow">
+        <div>
+          <span>01</span>
+          <strong>Describe</strong>
+          <small>Say what you need in your own words.</small>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Structure</strong>
+          <small>Extract only the facts you actually provide.</small>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Connect</strong>
+          <small>Match the request to a relevant local path.</small>
+        </div>
+      </div>
     </section>
 
-    <section class="services">
-      <div class="section-label">WHAT WE CAN HELP WITH</div>
+    <section id="services" class="services">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">SERVICES</div>
+          <h2>Choose a starting point.</h2>
+        </div>
+        <p>Each path opens into a short explanation and a guided starting request.</p>
+      </div>
+
       <div class="service-grid">
-        <article><span>01</span><h2>Buy from China</h2><p>Procurement, sourcing, samples and coordination.</p></article>
-        <article><span>02</span><h2>Africa to Global</h2><p>Commodities, buyer matching and export coordination.</p></article>
-        <article><span>03</span><h2>Build in China</h2><p>Company formation and business-partner coordination.</p></article>
-        <article><span>04</span><h2>Travel in China</h2><p>Local resources, business visits and custom itineraries.</p></article>
-        <article><span>05</span><h2>Healthcare in China</h2><p>Hospital coordination, translation and local support.</p></article>
-        <article><span>06</span><h2>Study in China</h2><p>Study destinations, applications and local resources.</p></article>
+        <button class="service-card active" type="button" data-service="buy_from_china" aria-expanded="true">
+          <span class="service-no">01</span>
+          <span class="service-title">Buy from China</span>
+          <span class="service-copy">Source products, factories, samples and local coordination.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service="africa_to_global" aria-expanded="false">
+          <span class="service-no">02</span>
+          <span class="service-title">Africa to Global</span>
+          <span class="service-copy">Connect African commodities with buyers and export pathways.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service="build_in_china" aria-expanded="false">
+          <span class="service-no">03</span>
+          <span class="service-title">Build in China</span>
+          <span class="service-copy">Explore company setup, market entry and local partnerships.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service="travel_in_china" aria-expanded="false">
+          <span class="service-no">04</span>
+          <span class="service-title">Travel in China</span>
+          <span class="service-copy">Plan local travel, business visits and on-the-ground support.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service="healthcare_in_china" aria-expanded="false">
+          <span class="service-no">05</span>
+          <span class="service-title">Healthcare in China</span>
+          <span class="service-copy">Navigate hospitals, appointments, translation and local support.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+
+        <button class="service-card" type="button" data-service="study_in_china" aria-expanded="false">
+          <span class="service-no">06</span>
+          <span class="service-title">Study in China</span>
+          <span class="service-copy">Clarify study destinations, applications and local resources.</span>
+          <span class="service-action">Explore <b>↗</b></span>
+        </button>
+      </div>
+
+      <div id="service-detail" class="service-detail" aria-live="polite"></div>
+    </section>
+
+    <section class="principle">
+      <div class="principle-mark">M</div>
+      <div>
+        <div class="eyebrow">THE PRINCIPLE</div>
+        <p>AI should <em>structure uncertainty</em>, not manufacture certainty.</p>
       </div>
     </section>
 
     <section id="start" class="enquiry">
-      <div class="section-label">START AN ENQUIRY</div>
-      <div id="chat" class="chat">
-        <div class="message assistant">Tell me what you need in China or across global markets. I will structure the request and show available resources before you decide whether to request an introduction.</div>
-      </div>
-      <form id="form">
-        <textarea id="message" rows="3" placeholder="Example: We produce shea butter in Tanzania and want Chinese buyers." required></textarea>
-        <div class="form-row">
-          <div class="muted">Mirror AI only records information you explicitly provide.</div>
-          <button class="button" type="submit">Send</button>
+      <div class="section-head enquiry-head">
+        <div>
+          <div class="eyebrow">START AN ENQUIRY</div>
+          <h2>Tell us what you need.</h2>
         </div>
-      </form>
+        <p>Mirror AI separates structured facts from generated language, then leaves consequential decisions to people.</p>
+      </div>
+
+      <div class="chat-shell">
+        <div class="chat-head">
+          <div>
+            <span class="status-dot"></span>
+            <strong>Mirror AI</strong>
+          </div>
+          <span id="chat-mode">Local interface</span>
+        </div>
+
+        <div id="chat" class="chat" aria-live="polite">
+          <div class="message assistant">
+            <span class="message-label">MIRROR AI</span>
+            <p>Tell me what you need in China or across global markets. I will structure the request, show the relevant path, and ask only for the information still needed.</p>
+          </div>
+        </div>
+
+        <form id="form">
+          <label class="sr-only" for="message">Describe your request</label>
+          <textarea id="message" rows="3" placeholder="For example: We produce shea butter in Tanzania and want Chinese buyers." required></textarea>
+          <div class="form-row">
+            <span>Only information you explicitly provide is recorded.</span>
+            <button class="send-button" type="submit">Send enquiry <b>↗</b></button>
+          </div>
+        </form>
+      </div>
     </section>
   </main>
+
+  <footer>
+    <div class="brand">MIRROR<span>AI</span></div>
+    <p>AI structures. Humans decide.</p>
+    <span>Powered by Apertus 1.5</span>
+  </footer>
 
   <script src="/static/app.js"></script>
 </body>
