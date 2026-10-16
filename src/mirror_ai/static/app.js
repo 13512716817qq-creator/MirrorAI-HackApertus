@@ -6,6 +6,17 @@ const chatMode = document.getElementById("chat-mode");
 const servicePage = document.getElementById("service-page");
 const servicePageContent = document.getElementById("service-page-content");
 const sendButton = form.querySelector("button");
+const contactForm = document.getElementById("contact-form");
+const contactName = document.getElementById("contact-name");
+const contactEmail = document.getElementById("contact-email");
+const contactPhone = document.getElementById("contact-phone");
+const contactCompany = document.getElementById("contact-company");
+const contactCountry = document.getElementById("contact-country");
+const contactService = document.getElementById("contact-service");
+const contactRequirement = document.getElementById("contact-requirement");
+const contactPreferred = document.getElementById("contact-preferred");
+const contactStatus = document.getElementById("contact-status");
+const contactSubmit = contactForm ? contactForm.querySelector("button[type='submit']") : null;
 const history = [];
 
 const services = {
@@ -386,13 +397,15 @@ function renderServicePage(key) {
   const start = servicePageContent.querySelector(".service-start");
   start.addEventListener("click",function() {
     input.value = data.start;
+    if (contactService) contactService.value = key;
+    if (contactRequirement) contactRequirement.value = data.start;
     servicePage.classList.remove("open");
     servicePage.setAttribute("aria-hidden","true");
     document.body.classList.remove("service-open");
-    window.location.hash = "enquiry";
+    window.location.hash = "contact";
     setTimeout(function() {
-      input.focus();
-      input.setSelectionRange(input.value.length,input.value.length);
+      if (contactName && !contactName.value.trim()) contactName.focus();
+      else if (contactRequirement) contactRequirement.focus();
     },350);
   });
 
@@ -419,7 +432,7 @@ function route() {
 
   closeServicePage();
 
-  if (hash === "enquiry" || hash === "services" || hash === "how-it-works" || hash === "people") {
+  if (hash === "enquiry" || hash === "services" || hash === "how-it-works" || hash === "people" || hash === "contact") {
     const target = document.getElementById(hash);
     if (target) {
       setTimeout(function() {
@@ -455,6 +468,58 @@ document.querySelectorAll(".quick-prompts button").forEach(function(button) {
     input.focus();
   });
 });
+
+
+if (contactForm) {
+  contactForm.addEventListener("submit", async function(event) {
+    event.preventDefault();
+    if (contactSubmit.disabled) return;
+
+    const payload = {
+      name: contactName.value.trim(),
+      email: contactEmail.value.trim(),
+      phone: contactPhone.value.trim(),
+      company: contactCompany.value.trim(),
+      country: contactCountry.value.trim(),
+      service: contactService.value,
+      requirement: contactRequirement.value.trim(),
+      preferred_contact: contactPreferred.value
+    };
+
+    contactStatus.textContent = "";
+    contactStatus.className = "contact-status";
+    contactSubmit.disabled = true;
+    contactSubmit.querySelector("span").textContent = "Sending...";
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(payload)
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || "We could not submit the enquiry.");
+      }
+
+      contactStatus.textContent = "Enquiry received. Thank you.";
+      contactStatus.className = "contact-status success";
+      contactForm.reset();
+      contactPreferred.value = "Either";
+      setTimeout(function() {
+        contactStatus.textContent = "The Mirror Global team can now review the brief.";
+      }, 1200);
+    } catch (error) {
+      contactStatus.textContent = error.message || "Please try again.";
+      contactStatus.className = "contact-status error";
+    } finally {
+      contactSubmit.disabled = false;
+      contactSubmit.querySelector("span").textContent = "↗";
+    }
+  });
+}
 
 form.addEventListener("submit",async function(event) {
   event.preventDefault();
