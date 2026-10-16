@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mirror AI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">MIRROR<span>AI</span></div>
+    <a href="#start">Start an enquiry</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">POWERED BY APERTUS 1.5</div>
+      <h1>From global demand<br>to the right <em>local path.</em></h1>
+      <p>Describe what you need. Mirror AI structures your request, matches available resources, and hands qualified enquiries to a human operator.</p>
+      <a class="button" href="#start">Start an enquiry</a>
+      <div id="mode" class="muted">Mode: loading</div>
+    </section>
+
+    <section class="services">
+      <div class="section-label">WHAT WE CAN HELP WITH</div>
+      <div class="service-grid">
+        <article><span>01</span><h2>Buy from China</h2><p>Procurement, sourcing, samples and coordination.</p></article>
+        <article><span>02</span><h2>Africa to Global</h2><p>Commodities, buyer matching and export coordination.</p></article>
+        <article><span>03</span><h2>Build in China</h2><p>Company formation and business-partner coordination.</p></article>
+        <article><span>04</span><h2>Travel in China</h2><p>Local resources, business visits and custom itineraries.</p></article>
+        <article><span>05</span><h2>Healthcare in China</h2><p>Hospital coordination, translation and local support.</p></article>
+        <article><span>06</span><h2>Study in China</h2><p>Study destinations, applications and local resources.</p></article>
+      </div>
+    </section>
+
+    <section id="start" class="enquiry">
+      <div class="section-label">START AN ENQUIRY</div>
+      <div id="chat" class="chat">
+        <div class="message assistant">Tell me what you need in China or across global markets. I will structure the request and show available resources before you decide whether to request an introduction.</div>
+      </div>
+      <form id="form">
+        <textarea id="message" rows="3" placeholder="Example: We produce shea butter in Tanzania and want Chinese buyers." required></textarea>
+        <div class="form-row">
+          <div class="muted">Mirror AI only records information you explicitly provide.</div>
+          <button class="button" type="submit">Send</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
