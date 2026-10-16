@@ -63,6 +63,12 @@ The model never receives authority to invent commercial facts. The application s
 5. **Healthcare in China** — hospital coordination and local support
 6. **Study in China** — study destinations and application resources
 
+## Live demo
+
+**Try Mirror AI:** https://mirror-ai-hackapertus.onrender.com
+
+The public demo is configured in **Apertus mode** and routes generation through Hugging Face Inference Providers using the PublicAI provider. The local Docker demo remains available in deterministic mode when no model credentials are configured.
+
 ## Quick start
 
 Requirements: Docker and Docker Compose.
@@ -128,7 +134,7 @@ Expected behavior: classify as **Study in China**, preserve Beijing as the desti
 - `GET /api/health`
 - `GET /api/mode`
 - `POST /api/chat`
-- `GET /api/leads`
+- `GET /api/leads` — admin-protected lead view
 
 Example request:
 
