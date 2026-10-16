@@ -1,7 +1,9 @@
 from pathlib import Path
+import secrets
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException
 from fastapi.responses import FileResponse
+from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -16,22 +18,28 @@ STATIC_DIR = BASE_DIR / "static"
 app = FastAPI(title=settings.app_name, version="2.0.0")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 llm = ApertusAdapter(settings)
+admin_security = HTTPBasic()
+
 
 class ChatRequest(BaseModel):
     message: str = Field(min_length=1, max_length=5000)
     history: list[dict] = Field(default_factory=list)
 
+
 @app.on_event("startup")
 def startup() -> None:
     init_db()
+
 
 @app.get("/")
 def index():
     return FileResponse(STATIC_DIR / "index.html")
 
+
 @app.get("/api/health")
 def health():
     return {"ok": True, "mode": settings.llm_mode, "model": settings.llm_name}
+
 
 @app.get("/api/mode")
 def mode():
@@ -40,6 +48,7 @@ def mode():
         "model": settings.llm_name,
         "live_apertus": settings.llm_mode == "apertus",
     }
+
 
 @app.post("/api/chat")
 def chat(req: ChatRequest):
@@ -65,6 +74,21 @@ def chat(req: ChatRequest):
         "model": settings.llm_name,
     }
 
+
+def require_admin(credentials: HTTPBasicCredentials = Depends(admin_security)) -> None:
+    username_ok = secrets.compare_digest(credentials.username, "fenix")
+    password_ok = secrets.compare_digest(
+        credentials.password,
+        settings.fenix_password,
+    )
+    if not (username_ok and password_ok):
+        raise HTTPException(
+            status_code=401,
+            detail="Unauthorized",
+            headers={"WWW-Authenticate": "Basic"},
+        )
+
+
 @app.get("/api/leads")
-def leads():
+def leads(_: None = Depends(require_admin)):
     return {"items": list_leads()}
