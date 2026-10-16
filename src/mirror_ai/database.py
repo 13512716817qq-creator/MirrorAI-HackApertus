@@ -9,8 +9,10 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
 from .config import settings
 
+
 class Base(DeclarativeBase):
     pass
+
 
 class Lead(Base):
     __tablename__ = "leads"
@@ -22,31 +24,79 @@ class Lead(Base):
     fields_json: Mapped[str] = mapped_column(Text, nullable=False)
     status: Mapped[str] = mapped_column(String(30), default="new", nullable=False)
 
+
 def _database_url() -> str:
     path = Path(settings.db_path)
     path.parent.mkdir(parents=True, exist_ok=True)
     return f"sqlite:///{path}"
+
 
 engine = create_engine(
     _database_url(),
     connect_args={"check_same_thread": False},
 )
 
+
 def init_db() -> None:
     Base.metadata.create_all(engine)
 
-def save_lead(raw_text: str, analysis: dict) -> int:
+
+def _save_fields_lead(
+    *,
+    raw_text: str,
+    intent: str,
+    fields: dict,
+    status: str = "new",
+) -> int:
     with Session(engine) as session:
         lead = Lead(
             created_at=datetime.now(timezone.utc),
-            intent=analysis["intent"],
+            intent=intent,
             raw_text=raw_text,
-            fields_json=json.dumps(analysis["fields"], ensure_ascii=False),
+            fields_json=json.dumps(fields, ensure_ascii=False),
+            status=status,
         )
         session.add(lead)
         session.commit()
         session.refresh(lead)
         return lead.id
+
+
+def save_lead(raw_text: str, analysis: dict) -> int:
+    return _save_fields_lead(
+        raw_text=raw_text,
+        intent=analysis["intent"],
+        fields=analysis["fields"],
+    )
+
+
+def save_contact(
+    *,
+    name: str,
+    email: str,
+    phone: str,
+    requirement: str,
+    service: str,
+    company: str = "",
+    country: str = "",
+    preferred_contact: str = "Either",
+) -> int:
+    fields = {
+        "contact_name": name,
+        "email": email,
+        "phone": phone,
+        "company": company,
+        "country": country,
+        "service": service,
+        "preferred_contact": preferred_contact,
+        "source": "website_contact_form",
+    }
+    return _save_fields_lead(
+        raw_text=requirement,
+        intent=service or "general_enquiry",
+        fields=fields,
+    )
+
 
 def list_leads() -> list[dict]:
     with Session(engine) as session:
