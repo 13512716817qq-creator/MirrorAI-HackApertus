@@ -3,7 +3,7 @@ import re
 import secrets
 
 from fastapi import Depends, FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, Response
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
@@ -16,7 +16,7 @@ from .services import analyze_request
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = BASE_DIR / "static"
 
-app = FastAPI(title=settings.app_name, version="2.1.0")
+app = FastAPI(title=settings.app_name, version="2.1.1")
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 llm = ApertusAdapter(settings)
 admin_security = HTTPBasic()
@@ -46,6 +46,11 @@ def startup() -> None:
 @app.get("/")
 def index():
     return FileResponse(STATIC_DIR / "index.html")
+
+
+@app.head("/")
+def index_head():
+    return Response(status_code=200)
 
 
 @app.get("/api/health")
