@@ -1,0 +1,84 @@
+{
+  "intents": {
+    "buy_from_china": {
+      "keywords": ["buy from china", "source from china", "sourcing", "supplier", "factory", "podcast", "solar equipment", "machinery", "electronics", "clothing", "furniture"]
+    },
+    "africa_to_global": {
+      "keywords": ["africa to global", "export from africa", "commodity", "shea butter", "cocoa butter", "avocado", "sesame", "cashew", "sisal"]
+    },
+    "build_in_china": {
+      "keywords": ["build in china", "company in china", "set up in china", "business in china", "market entry", "investment"]
+    },
+    "travel_in_china": {
+      "keywords": ["travel in china", "visit china", "trip to china", "factory visit", "business trip", "tour"]
+    },
+    "healthcare_in_china": {
+      "keywords": ["healthcare in china", "medical in china", "hospital in china", "treatment in china"]
+    },
+    "study_in_china": {
+      "keywords": ["study in china", "university in china", "school in china", "student", "study in beijing"]
+    }
+  },
+  "resources": [
+    {
+      "name": "Solar Equipment Sourcing Desk",
+      "location": "Shenzhen, China",
+      "description": "supplier sourcing, quotation coordination, factory visit",
+      "intents": ["buy_from_china"]
+    },
+    {
+      "name": "Consumer Goods Sourcing Desk",
+      "location": "Yiwu, China",
+      "description": "supplier sourcing, sample coordination, quality coordination",
+      "intents": ["buy_from_china"]
+    },
+    {
+      "name": "African Shea & Cocoa Trade Desk",
+      "location": "China market",
+      "description": "buyer matching, commodity documentation, import coordination",
+      "intents": ["africa_to_global"]
+    },
+    {
+      "name": "East Africa Fresh Produce Desk",
+      "location": "China market",
+      "description": "buyer matching, sample coordination, import enquiry",
+      "intents": ["africa_to_global"]
+    },
+    {
+      "name": "China Business Setup Desk",
+      "location": "Shenzhen, China",
+      "description": "company formation, business-partner coordination, market entry",
+      "intents": ["build_in_china"]
+    },
+    {
+      "name": "Beijing Travel Resource Desk",
+      "location": "Beijing, China",
+      "description": "local guide, transport coordination, custom itinerary",
+      "intents": ["travel_in_china", "study_in_china"]
+    },
+    {
+      "name": "Shanghai Travel Resource Desk",
+      "location": "Shanghai, China",
+      "description": "local guide, airport transfer, business visit support",
+      "intents": ["travel_in_china"]
+    },
+    {
+      "name": "Xi'an Travel Resource Desk",
+      "location": "Xi'an, China",
+      "description": "local guide, custom itinerary",
+      "intents": ["travel_in_china"]
+    },
+    {
+      "name": "China Healthcare Coordination Desk",
+      "location": "China",
+      "description": "hospital coordination, translation support, appointment enquiry",
+      "intents": ["healthcare_in_china"]
+    },
+    {
+      "name": "China Study Resource Desk",
+      "location": "China",
+      "description": "study destination, application and local resource coordination",
+      "intents": ["study_in_china"]
+    }
+  ]
+}
