@@ -1,0 +1,13 @@
+services:
+  mirror-ai:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - mirror_data:/app/runtime
+    restart: unless-stopped
+
+volumes:
+  mirror_data:
