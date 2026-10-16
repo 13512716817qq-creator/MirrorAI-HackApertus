@@ -2,6 +2,7 @@ const chat = document.getElementById("chat");
 const form = document.getElementById("form");
 const input = document.getElementById("message");
 const mode = document.getElementById("mode");
+const apertusLabel = document.getElementById("apertus-label");
 const history = [];
 
 function addMessage(text, role) {
@@ -28,10 +29,16 @@ async function loadMode() {
   try {
     const response = await fetch("/api/mode");
     const data = await response.json();
-    mode.textContent = data.live_apertus
-      ? "Mode: live Apertus · " + data.model
-      : "Mode: demo · local deterministic routing · not live Apertus";
+
+    if (data.live_apertus) {
+      apertusLabel.textContent = "POWERED BY APERTUS 1.5";
+      mode.textContent = "Mode: live Apertus · " + data.model;
+    } else {
+      apertusLabel.textContent = "APERTUS 1.5 READY";
+      mode.textContent = "Mode: demo · local deterministic routing · not live Apertus";
+    }
   } catch {
+    apertusLabel.textContent = "APERTUS 1.5";
     mode.textContent = "Mode: local";
   }
 }
