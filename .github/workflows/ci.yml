@@ -27,6 +27,17 @@ jobs:
           PYTHONPATH=src LLM_MODE=demo DATABASE_PATH=/tmp/mirror.db             uvicorn mirror_ai.main:app --host 127.0.0.1 --port 8000 > /tmp/mirror-ai.log 2>&1 &
           echo $! > /tmp/mirror-ai.pid
 
+      - name: Wait for application
+        run: |
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:8000/api/health; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/mirror-ai.log
+          exit 1
+
       - name: Smoke test
         run: PYTHONPATH=src python scripts/smoke_test.py
 
