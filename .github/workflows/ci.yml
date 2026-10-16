@@ -9,8 +9,33 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
       - run: pip install -r requirements.txt
-      - run: PYTHONPATH=src pytest -q
+
+      - name: Unit tests
+        run: PYTHONPATH=src pytest -q tests
+
+      - name: Compile check
+        run: python -m compileall -q src tests scripts
+
+      - name: Start application
+        run: |
+          PYTHONPATH=src LLM_MODE=demo DATABASE_PATH=/tmp/mirror.db             uvicorn mirror_ai.main:app --host 127.0.0.1 --port 8000 > /tmp/mirror-ai.log 2>&1 &
+          echo $! > /tmp/mirror-ai.pid
+
+      - name: Smoke test
+        run: PYTHONPATH=src python scripts/smoke_test.py
+
+      - name: Stop application
+        if: always()
+        run: |
+          if [ -f /tmp/mirror-ai.pid ]; then
+            kill "$(cat /tmp/mirror-ai.pid)" || true
+          fi
+          if [ -f /tmp/mirror-ai.log ]; then
+            cat /tmp/mirror-ai.log
+          fi
