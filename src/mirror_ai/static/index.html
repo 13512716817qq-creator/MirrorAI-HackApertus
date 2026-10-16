@@ -23,6 +23,7 @@
       <a href="#services">Services</a>
       <a href="#how-it-works">How it works</a>
       <a href="#people">People</a>
+      <a href="#contact">Contact</a>
     </nav>
 
     <div class="nav-actions">
@@ -346,6 +347,129 @@
         </div>
       </div>
     </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="contact-heading">
+          <div>
+            <div class="eyebrow">05 / CONTACT</div>
+            <h2>Bring us the<br><em>real brief.</em></h2>
+          </div>
+          <p>
+            Tell us what you are trying to buy, build, move, study or coordinate.
+            Give us the facts you already have. We will review the enquiry and follow up
+            through the contact method you choose.
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          <aside class="contact-trust">
+            <div class="trust-number">M / 05</div>
+            <div class="trust-mark">M</div>
+            <h3>One brief.<br>Two sides of the bridge.</h3>
+            <p>
+              Mirror AI structures the first message. Fenix coordinates the China side.
+              Eliza coordinates the Africa side. The final conversation stays human.
+            </p>
+
+            <div class="trust-points">
+              <div>
+                <span>01</span>
+                <strong>Clear requirements</strong>
+                <small>Tell us what you know. We will identify what matters next.</small>
+              </div>
+              <div>
+                <span>02</span>
+                <strong>Direct follow-up</strong>
+                <small>Your enquiry is routed to the relevant human operator.</small>
+              </div>
+              <div>
+                <span>03</span>
+                <strong>Practical coordination</strong>
+                <small>Commercial, operational and local details are handled with context.</small>
+              </div>
+            </div>
+          </aside>
+
+          <div class="contact-card">
+            <div class="contact-card-head">
+              <div>
+                <span class="contact-kicker">Start a conversation</span>
+                <h3>How can we help?</h3>
+              </div>
+              <span class="contact-required">* Required</span>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+              <div class="field-grid">
+                <div class="field">
+                  <label for="contact-name">Full name <span>*</span></label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your name" required maxlength="120">
+                </div>
+
+                <div class="field">
+                  <label for="contact-email">Email <span>*</span></label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@company.com" required maxlength="320">
+                </div>
+
+                <div class="field">
+                  <label for="contact-phone">Phone / WhatsApp <span>*</span></label>
+                  <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+86 / +255 / +..." required maxlength="50">
+                </div>
+
+                <div class="field">
+                  <label for="contact-company">Company / organisation</label>
+                  <input id="contact-company" name="company" type="text" autocomplete="organization" placeholder="Company name" maxlength="160">
+                </div>
+
+                <div class="field">
+                  <label for="contact-country">Country / region</label>
+                  <input id="contact-country" name="country" type="text" autocomplete="country-name" placeholder="Where are you based?" maxlength="100">
+                </div>
+
+                <div class="field">
+                  <label for="contact-service">What do you need? <span>*</span></label>
+                  <select id="contact-service" name="service" required>
+                    <option value="" selected disabled>Select a service</option>
+                    <option value="buy_from_china">Buy from China</option>
+                    <option value="africa_to_global">Africa to Global</option>
+                    <option value="build_in_china">Build in China</option>
+                    <option value="travel_in_china">Travel in China</option>
+                    <option value="healthcare_in_china">Healthcare in China</option>
+                    <option value="study_in_china">Study in China</option>
+                    <option value="general_enquiry">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="contact-requirement">Your requirement <span>*</span></label>
+                <textarea id="contact-requirement" name="requirement" rows="6" maxlength="5000" placeholder="Briefly describe the product, market, project, destination, timing or support you need." required></textarea>
+              </div>
+
+              <div class="contact-form-foot">
+                <div class="field contact-preference">
+                  <label for="contact-preferred">Preferred contact</label>
+                  <select id="contact-preferred" name="preferred_contact">
+                    <option value="Either" selected>Either</option>
+                    <option value="Email">Email</option>
+                    <option value="WhatsApp">WhatsApp / phone</option>
+                  </select>
+                </div>
+
+                <div class="contact-submit-wrap">
+                  <div id="contact-status" class="contact-status" role="status" aria-live="polite"></div>
+                  <button class="button button-primary contact-submit" type="submit">
+                    Send enquiry <span>↗</span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <div id="service-page" class="service-page" aria-hidden="true">
