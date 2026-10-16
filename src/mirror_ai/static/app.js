@@ -11,50 +11,152 @@ const services = {
   buy_from_china: {
     no: "01",
     title: "Buy from China",
-    intro: "For buyers who need products, factories or sourcing support in China. Mirror AI starts by clarifying the commercial requirement before any human introduction.",
-    steps: ["Product or category", "Quantity and destination", "Budget, timing and next requirement"],
-    start: "I need to source a product from China. Product: [product]. Quantity: [quantity]. Destination: [destination]. Budget: [budget].",
-    note: "Useful for procurement, samples, supplier coordination and factory visits."
+    short: "Procurement, sourcing, samples and coordination.",
+    intro: "A practical sourcing path for overseas buyers who need reliable access to Chinese products and suppliers without managing the entire process alone.",
+    fit: "Best for importers, distributors, retailers and first-time buyers.",
+    coverage: [
+      "Product and supplier sourcing",
+      "Factory and trading-company comparison",
+      "Sample coordination and requirement clarification",
+      "Quality checks, communication and shipping coordination"
+    ],
+    workflow: [
+      "Define the product, specification and target quantity.",
+      "Structure the buying brief and identify the right local route.",
+      "Hand the qualified enquiry to a human operator for supplier follow-up."
+    ],
+    ask: [
+      "What are you looking to buy?",
+      "How much do you need and where will it be delivered?",
+      "Do you have a target budget, specification or deadline?"
+    ],
+    start: "I want to buy from China. Product: [product]. Quantity: [quantity]. Destination: [country/city]. Specification: [specification].",
+    note: "Mirror AI does not publish supplier contacts. Qualified enquiries are handled privately by the human operations team."
   },
   africa_to_global: {
     no: "02",
     title: "Africa to Global",
-    intro: "For African producers looking for international buyers or a clearer export pathway. The first step is to understand the commodity, origin and target market.",
-    steps: ["Commodity and origin", "Target market or buyer type", "Volume, specification and timing"],
-    start: "We produce [commodity] in [country] and want buyers in [market]. Volume: [volume]. Specification: [specification].",
-    note: "Useful for commodities, buyer matching, documentation and import coordination."
+    short: "Commodities, buyer matching and export coordination.",
+    intro: "A market-entry path for African producers who want to connect their products with buyers beyond their home market and understand what information a serious buyer needs.",
+    fit: "Best for farms, processors, exporters and commodity producers.",
+    coverage: [
+      "Commodity and supplier profiling",
+      "Buyer and market matching",
+      "Specification, volume and quotation clarification",
+      "Export and China-side coordination"
+    ],
+    workflow: [
+      "Define the commodity, origin, specification and available volume.",
+      "Structure the export proposition around the target market.",
+      "Route qualified buyer interest to the human team for direct follow-up."
+    ],
+    ask: [
+      "What product do you supply and from which country?",
+      "What specification and volume can you offer?",
+      "Which market or buyer type are you targeting?"
+    ],
+    start: "We supply [commodity] from [country]. Specification: [specification]. Available volume: [volume]. Target market: [market].",
+    note: "Mirror AI helps clarify the opportunity; commercial terms and final negotiations remain with the parties involved."
   },
   build_in_china: {
     no: "03",
     title: "Build in China",
-    intro: "For people and companies exploring a business presence in China. Mirror AI helps turn a broad market-entry idea into a specific local enquiry.",
-    steps: ["Business type and purpose", "Preferred city and budget", "Timeline and local support needed"],
-    start: "I want to set up a business in China. Business type: [type]. City: [city]. Budget: [budget]. Timeline: [timeline].",
-    note: "Useful for company formation, market entry and business-partner coordination."
+    short: "Company formation, market entry and local partnerships.",
+    intro: "A structured starting point for overseas founders and companies exploring a business presence in China, from an initial idea to a concrete local enquiry.",
+    fit: "Best for founders, overseas companies and China market-entry projects.",
+    coverage: [
+      "Company formation and basic setup guidance",
+      "Market-entry and location questions",
+      "Local business-partner coordination",
+      "Supplier, service and operational resource matching"
+    ],
+    workflow: [
+      "Clarify the business model, ownership and purpose.",
+      "Identify the city, operational requirements and key constraints.",
+      "Route the structured enquiry to the relevant human operator."
+    ],
+    ask: [
+      "What do you want to establish or operate in China?",
+      "Which city or region are you considering?",
+      "What is your expected timeline and main support need?"
+    ],
+    start: "I want to build a business in China. Business type: [type]. City/region: [city]. Ownership: [ownership]. Timeline: [timeline].",
+    note: "The platform provides structured coordination, not legal or regulatory guarantees. Final decisions should be verified with qualified professionals."
   },
   travel_in_china: {
     no: "04",
     title: "Travel in China",
-    intro: "For visitors who need more than a generic itinerary. Start with the destination, purpose and practical support required on the ground.",
-    steps: ["Destination and trip purpose", "Trip length", "Guide, transport or business-visit support"],
-    start: "I am travelling to China for [purpose]. Destination: [city]. Trip length: [days]. I need [services].",
-    note: "Useful for local guides, transport, factory visits and custom itineraries."
+    short: "Local resources, business visits and custom itineraries.",
+    intro: "A local coordination path for visitors who need a useful trip rather than a generic itinerary, especially when travel includes business, sourcing or on-the-ground appointments.",
+    fit: "Best for business visitors, buyers, families and first-time China travellers.",
+    coverage: [
+      "Custom itinerary planning",
+      "Business and factory-visit coordination",
+      "Local transport and guide support",
+      "Practical destination and appointment coordination"
+    ],
+    workflow: [
+      "Describe the purpose, destination and length of the trip.",
+      "Separate essential appointments from optional experiences.",
+      "Route the request to a human operator for local coordination."
+    ],
+    ask: [
+      "Where in China are you going?",
+      "What is the main purpose of the trip?",
+      "What local support, visits or transport do you need?"
+    ],
+    start: "I am travelling to China for [purpose]. Destination: [city]. Trip length: [days]. I need help with [support/visits/transport].",
+    note: "The service is designed around practical local coordination and can be adapted to the actual purpose of the trip."
   },
   healthcare_in_china: {
     no: "05",
     title: "Healthcare in China",
-    intro: "A non-clinical navigation path for people seeking healthcare support in China. Mirror AI helps organize the administrative and coordination request without making medical decisions.",
-    steps: ["City and treatment area", "Preferred timing", "Hospital, translation or appointment support"],
-    start: "I need healthcare coordination in China. City: [city]. Treatment area: [treatment]. Timing: [timing]. I need [support].",
-    note: "Non-clinical coordination only. Medical decisions remain with qualified healthcare professionals."
+    short: "Hospital coordination, translation and local support.",
+    intro: "A non-clinical coordination path for international visitors who need help organizing healthcare-related logistics in China while keeping medical decisions with qualified professionals.",
+    fit: "Best for international patients and accompanying family members.",
+    coverage: [
+      "Hospital and department coordination",
+      "Appointment and administrative support",
+      "Language and translation assistance",
+      "Local logistics for patients and accompanying family"
+    ],
+    workflow: [
+      "Describe the city, treatment area and practical requirement.",
+      "Organize the administrative and communication needs.",
+      "Route the enquiry to a human operator for local coordination."
+    ],
+    ask: [
+      "Which city are you considering?",
+      "What treatment area or hospital service do you need?",
+      "Do you need appointment, translation or local logistics support?"
+    ],
+    start: "I need healthcare coordination in China. City: [city]. Treatment area: [treatment area]. Timing: [timing]. Support needed: [support].",
+    note: "Non-clinical support only. Mirror AI does not diagnose, prescribe, select treatment or replace medical professionals."
   },
   study_in_china: {
     no: "06",
     title: "Study in China",
-    intro: "For prospective students who want to turn a study idea into a clear enquiry. Start with destination, study level and subject.",
-    steps: ["Destination or preferred city", "Study level", "Subject and intake timing"],
-    start: "I want to study in China. Destination: [city]. Study level: [level]. Subject: [subject]. Intake: [timing].",
-    note: "Useful for study destinations, applications and local resource coordination."
+    short: "Study destinations, applications and local resources.",
+    intro: "A clear starting point for international students comparing study options in China and preparing the information needed for a focused application enquiry.",
+    fit: "Best for prospective students, families and education partners.",
+    coverage: [
+      "Study destination and programme exploration",
+      "Application pathway clarification",
+      "Intake, academic background and requirement review",
+      "Local education resources and follow-up coordination"
+    ],
+    workflow: [
+      "Clarify the student's background, target level and subject.",
+      "Structure the destination, programme and intake requirements.",
+      "Route the qualified enquiry to a human education operator."
+    ],
+    ask: [
+      "What level and subject do you want to study?",
+      "Which city or type of institution are you considering?",
+      "When do you want to start and what is your academic background?"
+    ],
+    start: "I want to study in China. Study level: [level]. Subject: [subject]. Preferred city: [city]. Intake: [month/year].",
+    note: "The platform helps structure the enquiry; admission decisions and final eligibility remain with the relevant institution."
   }
 };
 
@@ -74,7 +176,7 @@ function addMessage(content, role) {
   node.appendChild(paragraph);
 
   chat.appendChild(node);
-  node.scrollIntoView({behavior:"smooth", block:"nearest"});
+  node.scrollIntoView({ behavior: "smooth", block: "nearest" });
   return node;
 }
 
@@ -122,7 +224,7 @@ function addAnalysis(data) {
 
   card.append(top, body);
   chat.appendChild(card);
-  card.scrollIntoView({behavior:"smooth", block:"nearest"});
+  card.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
 function addResources(resources) {
@@ -130,6 +232,7 @@ function addResources(resources) {
 
   const wrapper = document.createElement("div");
   wrapper.className = "analysis-card";
+
   resources.forEach(resource => {
     const item = document.createElement("div");
     item.className = "resource";
@@ -145,10 +248,39 @@ function addResources(resources) {
   });
 
   chat.appendChild(wrapper);
-  wrapper.scrollIntoView({behavior:"smooth", block:"nearest"});
+  wrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-function renderService(key) {
+function makeDetailList(items, className) {
+  const list = document.createElement("ul");
+  list.className = className;
+
+  items.forEach((item, index) => {
+    const li = document.createElement("li");
+    const no = document.createElement("span");
+    no.textContent = String(index + 1).padStart(2, "0");
+    const text = document.createElement("div");
+    text.textContent = item;
+    li.append(no, text);
+    list.appendChild(li);
+  });
+
+  return list;
+}
+
+function makeDetailColumn(label, items) {
+  const column = document.createElement("div");
+  column.className = "detail-column";
+
+  const heading = document.createElement("div");
+  heading.className = "detail-kicker";
+  heading.textContent = label;
+
+  column.append(heading, makeDetailList(items, "detail-list"));
+  return column;
+}
+
+function renderService(key, shouldScroll = false) {
   const data = services[key];
   if (!data) return;
 
@@ -160,58 +292,74 @@ function renderService(key) {
 
   detail.innerHTML = "";
 
-  const grid = document.createElement("div");
-  grid.className = "detail-grid";
+  const panel = document.createElement("div");
+  panel.className = "detail-panel";
 
-  const intro = document.createElement("div");
+  const head = document.createElement("div");
+  head.className = "detail-panel-head";
+
+  const titleBlock = document.createElement("div");
+  titleBlock.className = "detail-title-block";
+
   const kicker = document.createElement("div");
   kicker.className = "detail-kicker";
-  kicker.textContent = "Path " + data.no;
+  kicker.textContent = "SERVICE PATH " + data.no;
+
   const title = document.createElement("h3");
   title.className = "detail-title";
   title.textContent = data.title;
-  const copy = document.createElement("p");
-  copy.className = "detail-intro";
-  copy.textContent = data.intro;
-  intro.append(kicker, title, copy);
 
-  const steps = document.createElement("div");
-  const stepLabel = document.createElement("div");
-  stepLabel.className = "detail-kicker";
-  stepLabel.textContent = "Start with";
-  const list = document.createElement("ol");
-  list.className = "detail-list";
-  data.steps.forEach((step, index) => {
-    const li = document.createElement("li");
-    const no = document.createElement("span");
-    no.textContent = "0" + (index + 1);
-    const text = document.createElement("div");
-    text.textContent = step;
-    li.append(no, text);
-    list.appendChild(li);
-  });
-  steps.append(stepLabel, list);
+  const intro = document.createElement("p");
+  intro.className = "detail-intro";
+  intro.textContent = data.intro;
 
-  const cta = document.createElement("div");
-  cta.className = "detail-cta";
+  titleBlock.append(kicker, title, intro);
+
+  const fit = document.createElement("div");
+  fit.className = "detail-fit";
+  const fitLabel = document.createElement("span");
+  fitLabel.textContent = "WHO IT IS FOR";
+  const fitText = document.createElement("strong");
+  fitText.textContent = data.fit;
+  fit.append(fitLabel, fitText);
+
+  head.append(titleBlock, fit);
+
+  const body = document.createElement("div");
+  body.className = "detail-body";
+  body.append(
+    makeDetailColumn("WHAT WE CAN HELP WITH", data.coverage),
+    makeDetailColumn("HOW THE PATH WORKS", data.workflow),
+    makeDetailColumn("START WITH THESE FACTS", data.ask)
+  );
+
+  const footer = document.createElement("div");
+  footer.className = "detail-panel-footer";
+
   const note = document.createElement("p");
+  note.className = "detail-note";
   note.textContent = data.note;
-  const button = document.createElement("button");
-  button.className = "use-path";
-  button.type = "button";
-  button.innerHTML = "Use this path <b>↘</b>";
-  button.addEventListener("click", () => {
+
+  const action = document.createElement("button");
+  action.className = "use-path";
+  action.type = "button";
+  action.innerHTML = "Start with this path <b>↘</b>";
+  action.addEventListener("click", () => {
     input.value = data.start;
-    document.getElementById("start").scrollIntoView({behavior:"smooth", block:"start"});
+    document.getElementById("start").scrollIntoView({ behavior: "smooth", block: "start" });
     setTimeout(() => {
       input.focus();
       input.setSelectionRange(input.value.length, input.value.length);
     }, 450);
   });
-  cta.append(note, button);
 
-  grid.append(intro, steps, cta);
-  detail.appendChild(grid);
+  footer.append(note, action);
+  panel.append(head, body, footer);
+  detail.appendChild(panel);
+
+  if (shouldScroll) {
+    detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
 }
 
 async function loadMode() {
@@ -233,7 +381,7 @@ async function loadMode() {
 }
 
 document.querySelectorAll(".service-card").forEach(card => {
-  card.addEventListener("click", () => renderService(card.dataset.service));
+  card.addEventListener("click", () => renderService(card.dataset.service, true));
 });
 
 form.addEventListener("submit", async event => {
@@ -249,9 +397,9 @@ form.addEventListener("submit", async event => {
 
   try {
     const response = await fetch("/api/chat", {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({message, history})
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, history })
     });
 
     const data = await response.json();
@@ -266,8 +414,8 @@ form.addEventListener("submit", async event => {
     addAnalysis(data);
     addResources(data.resources);
 
-    history.push({role:"user", content:message});
-    history.push({role:"assistant", content:data.answer});
+    history.push({ role: "user", content: message });
+    history.push({ role: "assistant", content: data.answer });
   } catch {
     pending.remove();
     addMessage("The local service is unavailable. Check the running Docker container and try again.", "assistant");
