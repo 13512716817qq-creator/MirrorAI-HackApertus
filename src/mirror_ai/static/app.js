@@ -3,162 +3,220 @@ const form = document.getElementById("form");
 const input = document.getElementById("message");
 const mode = document.getElementById("mode");
 const chatMode = document.getElementById("chat-mode");
-const detail = document.getElementById("service-detail");
+const servicePage = document.getElementById("service-page");
+const servicePageContent = document.getElementById("service-page-content");
 const sendButton = form.querySelector("button");
 const history = [];
 
 const services = {
   buy_from_china: {
+    slug: "buy-from-china",
     no: "01",
     title: "Buy from China",
-    short: "Procurement, sourcing, samples and coordination.",
-    intro: "A practical sourcing path for overseas buyers who need reliable access to Chinese products and suppliers without managing the entire process alone.",
-    fit: "Best for importers, distributors, retailers and first-time buyers.",
+    accent: "China sourcing",
+    intro: "A local sourcing path for international buyers who need Chinese products, suppliers and on-the-ground coordination without having to manage every local step themselves.",
+    visual: "SOURCE / COMPARE / CONNECT",
+    whatTitle: "A clearer route to the right supplier.",
+    whatText: "Mirror AI turns a product request into a structured sourcing brief. The human team can then work from that brief to communicate with suppliers, compare options and coordinate the next practical step.",
     coverage: [
       "Product and supplier sourcing",
       "Factory and trading-company comparison",
-      "Sample coordination and requirement clarification",
-      "Quality checks, communication and shipping coordination"
+      "Sample and specification coordination",
+      "Quality-check and order follow-up",
+      "China-side logistics and communication support"
     ],
-    workflow: [
-      "Define the product, specification and target quantity.",
-      "Structure the buying brief and identify the right local route.",
-      "Hand the qualified enquiry to a human operator for supplier follow-up."
+    fit: "International buyers, importers, distributors, retailers and first-time China buyers.",
+    steps: [
+      ["01","Define","Product, specification, quantity and destination."],
+      ["02","Source","Identify and compare relevant Chinese supply options."],
+      ["03","Verify","Coordinate samples, requirements and quality information."],
+      ["04","Follow through","Keep the China-side conversation moving with a human operator."]
     ],
     ask: [
       "What are you looking to buy?",
-      "How much do you need and where will it be delivered?",
-      "Do you have a target budget, specification or deadline?"
+      "How much do you need?",
+      "Where should the goods be delivered?",
+      "Do you have a target specification, budget or deadline?"
     ],
     start: "I want to buy from China. Product: [product]. Quantity: [quantity]. Destination: [country/city]. Specification: [specification].",
-    note: "Mirror AI does not publish supplier contacts. Qualified enquiries are handled privately by the human operations team."
+    note: "Supplier, quotation, availability and quality decisions are verified with the relevant human parties. Mirror AI does not invent commercial facts."
   },
   africa_to_global: {
+    slug: "africa-to-global",
     no: "02",
     title: "Africa to Global",
-    short: "Commodities, buyer matching and export coordination.",
-    intro: "A market-entry path for African producers who want to connect their products with buyers beyond their home market and understand what information a serious buyer needs.",
-    fit: "Best for farms, processors, exporters and commodity producers.",
+    accent: "Africa / global trade",
+    intro: "A market-entry path for African producers and exporters who want to connect credible supply with international demand, especially where China can become part of the commercial route.",
+    visual: "AFRICA / CHINA / GLOBAL",
+    whatTitle: "Move supply toward the right market.",
+    whatText: "The system structures the commodity, origin, specification, volume and target market before the human team takes the enquiry into buyer or supplier conversations.",
     coverage: [
       "Commodity and supplier profiling",
       "Buyer and market matching",
-      "Specification, volume and quotation clarification",
-      "Export and China-side coordination"
+      "Specification and volume clarification",
+      "Quotation and commercial enquiry coordination",
+      "China-side and international trade communication"
     ],
-    workflow: [
-      "Define the commodity, origin, specification and available volume.",
-      "Structure the export proposition around the target market.",
-      "Route qualified buyer interest to the human team for direct follow-up."
+    fit: "Farms, processors, exporters, commodity businesses and Africa-focused trade projects.",
+    steps: [
+      ["01","Profile","Define origin, commodity, specification and available volume."],
+      ["02","Position","Clarify the target market and buyer type."],
+      ["03","Connect","Route qualified interest toward relevant human contacts."],
+      ["04","Coordinate","Support the practical conversation between the parties."]
     ],
     ask: [
-      "What product do you supply and from which country?",
+      "What product do you supply?",
+      "Which country is the product from?",
       "What specification and volume can you offer?",
       "Which market or buyer type are you targeting?"
     ],
     start: "We supply [commodity] from [country]. Specification: [specification]. Available volume: [volume]. Target market: [market].",
-    note: "Mirror AI helps clarify the opportunity; commercial terms and final negotiations remain with the parties involved."
+    note: "Mirror AI structures the opportunity. Final buyer qualification, pricing, payment and export decisions remain with the parties involved."
   },
   build_in_china: {
+    slug: "build-in-china",
     no: "03",
     title: "Build in China",
-    short: "Company formation, market entry and local partnerships.",
-    intro: "A structured starting point for overseas founders and companies exploring a business presence in China, from an initial idea to a concrete local enquiry.",
-    fit: "Best for founders, overseas companies and China market-entry projects.",
+    accent: "China market entry",
+    intro: "A practical starting point for overseas founders and companies exploring a business presence in China, from the first question to a focused local enquiry.",
+    visual: "ENTER / BUILD / OPERATE",
+    whatTitle: "Turn a China idea into a local path.",
+    whatText: "Instead of beginning with a long checklist, Mirror AI first structures the business purpose, ownership, city, timing and support required, then routes the enquiry toward the relevant human resource.",
     coverage: [
-      "Company formation and basic setup guidance",
+      "Company formation and setup coordination",
       "Market-entry and location questions",
       "Local business-partner coordination",
-      "Supplier, service and operational resource matching"
+      "Supplier and service-provider matching",
+      "Operational resource coordination"
     ],
-    workflow: [
-      "Clarify the business model, ownership and purpose.",
-      "Identify the city, operational requirements and key constraints.",
-      "Route the structured enquiry to the relevant human operator."
+    fit: "Overseas founders, companies, investors and international business projects entering China.",
+    steps: [
+      ["01","Clarify","Business model, purpose, ownership and constraints."],
+      ["02","Localise","Identify city, operational needs and local dependencies."],
+      ["03","Connect","Route the structured enquiry to the right human resource."],
+      ["04","Verify","Confirm legal, regulatory and commercial details with qualified parties."]
     ],
     ask: [
       "What do you want to establish or operate in China?",
       "Which city or region are you considering?",
-      "What is your expected timeline and main support need?"
+      "Who will own and operate the business?",
+      "What is your timeline and main support need?"
     ],
     start: "I want to build a business in China. Business type: [type]. City/region: [city]. Ownership: [ownership]. Timeline: [timeline].",
-    note: "The platform provides structured coordination, not legal or regulatory guarantees. Final decisions should be verified with qualified professionals."
+    note: "The service coordinates a practical starting path. Legal, regulatory and tax conclusions should be verified with qualified professionals."
   },
   travel_in_china: {
+    slug: "travel-in-china",
     no: "04",
     title: "Travel in China",
-    short: "Local resources, business visits and custom itineraries.",
+    accent: "China local support",
     intro: "A local coordination path for visitors who need a useful trip rather than a generic itinerary, especially when travel includes business, sourcing or on-the-ground appointments.",
-    fit: "Best for business visitors, buyers, families and first-time China travellers.",
+    visual: "VISIT / MEET / MOVE",
+    whatTitle: "Make the trip work for the reason you came.",
+    whatText: "Tell us why you are coming, where you need to go and what needs to happen on the ground. The system helps separate the essential from the optional before a human operator coordinates the local details.",
     coverage: [
       "Custom itinerary planning",
       "Business and factory-visit coordination",
       "Local transport and guide support",
-      "Practical destination and appointment coordination"
+      "Appointment and destination coordination",
+      "Practical on-the-ground assistance"
     ],
-    workflow: [
-      "Describe the purpose, destination and length of the trip.",
-      "Separate essential appointments from optional experiences.",
-      "Route the request to a human operator for local coordination."
+    fit: "Business visitors, buyers, families and first-time China travellers.",
+    steps: [
+      ["01","Purpose","Define the reason, destination and trip length."],
+      ["02","Prioritise","Separate essential appointments from optional experiences."],
+      ["03","Arrange","Coordinate visits, local resources and practical logistics."],
+      ["04","Support","Keep the local plan clear as the trip develops."]
     ],
     ask: [
       "Where in China are you going?",
       "What is the main purpose of the trip?",
+      "How long will you stay?",
       "What local support, visits or transport do you need?"
     ],
     start: "I am travelling to China for [purpose]. Destination: [city]. Trip length: [days]. I need help with [support/visits/transport].",
-    note: "The service is designed around practical local coordination and can be adapted to the actual purpose of the trip."
+    note: "Travel arrangements depend on the actual destination, timing and local availability and are confirmed by the human team."
   },
   healthcare_in_china: {
+    slug: "healthcare-in-china",
     no: "05",
     title: "Healthcare in China",
-    short: "Hospital coordination, translation and local support.",
-    intro: "A non-clinical coordination path for international visitors who need help organizing healthcare-related logistics in China while keeping medical decisions with qualified professionals.",
-    fit: "Best for international patients and accompanying family members.",
+    accent: "Non-clinical coordination",
+    intro: "A non-clinical coordination path for international visitors who need help organising healthcare-related logistics in China while medical decisions stay with qualified professionals.",
+    visual: "HOSPITAL / LANGUAGE / SUPPORT",
+    whatTitle: "Coordinate the local side of care.",
+    whatText: "Mirror AI helps turn a practical healthcare request into a clearer coordination brief. The human team can then assist with administrative, communication and local-support needs.",
     coverage: [
       "Hospital and department coordination",
       "Appointment and administrative support",
       "Language and translation assistance",
-      "Local logistics for patients and accompanying family"
+      "Local logistics for patients and accompanying family",
+      "Communication support around the visit"
     ],
-    workflow: [
-      "Describe the city, treatment area and practical requirement.",
-      "Organize the administrative and communication needs.",
-      "Route the enquiry to a human operator for local coordination."
+    fit: "International patients and accompanying family members who need non-clinical local support.",
+    steps: [
+      ["01","Locate","Clarify city, treatment area and practical need."],
+      ["02","Coordinate","Organise appointment and administrative requirements."],
+      ["03","Translate","Support communication where language assistance is needed."],
+      ["04","Support","Coordinate local logistics around the visit."]
     ],
     ask: [
       "Which city are you considering?",
       "What treatment area or hospital service do you need?",
+      "When are you planning to travel?",
       "Do you need appointment, translation or local logistics support?"
     ],
     start: "I need healthcare coordination in China. City: [city]. Treatment area: [treatment area]. Timing: [timing]. Support needed: [support].",
     note: "Non-clinical support only. Mirror AI does not diagnose, prescribe, select treatment or replace medical professionals."
   },
   study_in_china: {
+    slug: "study-in-china",
     no: "06",
     title: "Study in China",
-    short: "Study destinations, applications and local resources.",
-    intro: "A clear starting point for international students comparing study options in China and preparing the information needed for a focused application enquiry.",
-    fit: "Best for prospective students, families and education partners.",
+    accent: "Education coordination",
+    intro: "A focused starting point for international students comparing study options in China and preparing the information needed for a useful application enquiry.",
+    visual: "STUDY / APPLY / ARRIVE",
+    whatTitle: "Make the study path easier to understand.",
+    whatText: "The system first structures academic background, target level, subject, destination and intake. The human education side can then work from a cleaner brief instead of starting from scattered messages.",
     coverage: [
       "Study destination and programme exploration",
       "Application pathway clarification",
-      "Intake, academic background and requirement review",
-      "Local education resources and follow-up coordination"
+      "Academic background and requirement review",
+      "Intake and planning support",
+      "Local education-resource coordination"
     ],
-    workflow: [
-      "Clarify the student's background, target level and subject.",
-      "Structure the destination, programme and intake requirements.",
-      "Route the qualified enquiry to a human education operator."
+    fit: "Prospective students, families and education partners considering China.",
+    steps: [
+      ["01","Profile","Academic background, target level and subject."],
+      ["02","Explore","Compare destination and programme directions."],
+      ["03","Prepare","Clarify the information needed for an application."],
+      ["04","Follow up","Route the enquiry to the human education operator."]
     ],
     ask: [
       "What level and subject do you want to study?",
       "Which city or type of institution are you considering?",
-      "When do you want to start and what is your academic background?"
+      "When do you want to start?",
+      "What is your academic background?"
     ],
     start: "I want to study in China. Study level: [level]. Subject: [subject]. Preferred city: [city]. Intake: [month/year].",
-    note: "The platform helps structure the enquiry; admission decisions and final eligibility remain with the relevant institution."
+    note: "Admission decisions and final eligibility remain with the relevant institution. The service is designed to make the enquiry clearer and more actionable."
   }
 };
+
+function slugToKey(slug) {
+  return Object.keys(services).find(function(key) {
+    return services[key].slug === slug;
+  });
+}
+
+function escapeHTML(value) {
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
 
 function addMessage(content, role) {
   const node = document.createElement("div");
@@ -176,7 +234,7 @@ function addMessage(content, role) {
   node.appendChild(paragraph);
 
   chat.appendChild(node);
-  node.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  node.scrollIntoView({behavior:"smooth",block:"nearest"});
   return node;
 }
 
@@ -186,45 +244,53 @@ function addAnalysis(data) {
 
   const top = document.createElement("div");
   top.className = "analysis-top";
+
   const intent = document.createElement("span");
-  intent.textContent = (data.intent || "request").replaceAll("_", " ");
+  intent.textContent = (data.intent || "request").replaceAll("_"," ");
+
   const confidence = document.createElement("span");
   confidence.textContent = "routing confidence " + Math.round((data.confidence || 0) * 100) + "%";
-  top.append(intent, confidence);
+
+  top.append(intent,confidence);
 
   const body = document.createElement("div");
   body.className = "analysis-body";
 
   const fields = data.fields || {};
-  const fieldEntries = Object.entries(fields);
-  if (fieldEntries.length) {
-    fieldEntries.forEach(([key, value]) => {
-      const row = document.createElement("div");
-      row.className = "analysis-row";
-      const label = document.createElement("span");
-      label.textContent = key;
-      const valueNode = document.createElement("strong");
-      valueNode.textContent = value;
-      row.append(label, valueNode);
-      body.appendChild(row);
-    });
-  }
+  const entries = Object.entries(fields);
+
+  entries.forEach(function(entry) {
+    const row = document.createElement("div");
+    row.className = "analysis-row";
+
+    const label = document.createElement("span");
+    label.textContent = entry[0];
+
+    const value = document.createElement("strong");
+    value.textContent = entry[1];
+
+    row.append(label,value);
+    body.appendChild(row);
+  });
 
   const missing = data.missing_fields || [];
   if (missing.length) {
     const row = document.createElement("div");
     row.className = "analysis-row";
+
     const label = document.createElement("span");
     label.textContent = "still needed";
-    const valueNode = document.createElement("strong");
-    valueNode.textContent = missing.join(" · ");
-    row.append(label, valueNode);
+
+    const value = document.createElement("strong");
+    value.textContent = missing.join(" · ");
+
+    row.append(label,value);
     body.appendChild(row);
   }
 
-  card.append(top, body);
+  card.append(top,body);
   chat.appendChild(card);
-  card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  card.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
 function addResources(resources) {
@@ -233,7 +299,7 @@ function addResources(resources) {
   const wrapper = document.createElement("div");
   wrapper.className = "analysis-card";
 
-  resources.forEach(resource => {
+  resources.forEach(function(resource) {
     const item = document.createElement("div");
     item.className = "resource";
 
@@ -243,122 +309,125 @@ function addResources(resources) {
     const meta = document.createElement("small");
     meta.textContent = resource.location + " · " + resource.description;
 
-    item.append(name, meta);
+    item.append(name,meta);
     wrapper.appendChild(item);
   });
 
   chat.appendChild(wrapper);
-  wrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  wrapper.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
-function makeDetailList(items, className) {
-  const list = document.createElement("ul");
-  list.className = className;
-
-  items.forEach((item, index) => {
-    const li = document.createElement("li");
-    const no = document.createElement("span");
-    no.textContent = String(index + 1).padStart(2, "0");
-    const text = document.createElement("div");
-    text.textContent = item;
-    li.append(no, text);
-    list.appendChild(li);
-  });
-
-  return list;
-}
-
-function makeDetailColumn(label, items) {
-  const column = document.createElement("div");
-  column.className = "detail-column";
-
-  const heading = document.createElement("div");
-  heading.className = "detail-kicker";
-  heading.textContent = label;
-
-  column.append(heading, makeDetailList(items, "detail-list"));
-  return column;
-}
-
-function renderService(key, shouldScroll = false) {
+function renderServicePage(key) {
   const data = services[key];
   if (!data) return;
 
-  document.querySelectorAll(".service-card").forEach(card => {
-    const active = card.dataset.service === key;
-    card.classList.toggle("active", active);
-    card.setAttribute("aria-expanded", String(active));
-  });
+  const coverage = data.coverage.map(function(item,index) {
+    return "<li><span>" + String(index + 1).padStart(2,"0") + "</span><div>" + escapeHTML(item) + "</div></li>";
+  }).join("");
 
-  detail.innerHTML = "";
+  const ask = data.ask.map(function(item,index) {
+    return "<li><span>" + String(index + 1).padStart(2,"0") + "</span><div>" + escapeHTML(item) + "</div></li>";
+  }).join("");
 
-  const panel = document.createElement("div");
-  panel.className = "detail-panel";
+  const steps = data.steps.map(function(item) {
+    return "<article class='process-item'>" +
+      "<span>" + escapeHTML(item[0]) + "</span>" +
+      "<h3>" + escapeHTML(item[1]) + "</h3>" +
+      "<p>" + escapeHTML(item[2]) + "</p>" +
+    "</article>";
+  }).join("");
 
-  const head = document.createElement("div");
-  head.className = "detail-panel-head";
+  servicePageContent.innerHTML =
+    "<section class='service-hero'>" +
+      "<div>" +
+        "<div class='eyebrow'>" + escapeHTML(data.no) + " / " + escapeHTML(data.accent) + "</div>" +
+        "<h1>" + escapeHTML(data.title).replace(" from "," from ").replace(" in "," in ") + "</h1>" +
+      "</div>" +
+      "<p class='service-hero-intro'>" + escapeHTML(data.intro) + "</p>" +
+    "</section>" +
 
-  const titleBlock = document.createElement("div");
-  titleBlock.className = "detail-title-block";
+    "<div class='service-visual-card'>" +
+      "<div class='service-visual-label'>" + escapeHTML(data.visual) + "</div>" +
+    "</div>" +
 
-  const kicker = document.createElement("div");
-  kicker.className = "detail-kicker";
-  kicker.textContent = "SERVICE PATH " + data.no;
+    "<section class='service-content'>" +
+      "<div class='service-column'>" +
+        "<div class='service-kicker'>What we coordinate</div>" +
+        "<h2>" + escapeHTML(data.whatTitle) + "</h2>" +
+        "<p>" + escapeHTML(data.whatText) + "</p>" +
+        "<ul class='service-list'>" + coverage + "</ul>" +
+      "</div>" +
+      "<div class='service-column'>" +
+        "<div class='service-kicker'>Start with these facts</div>" +
+        "<h2>Give us enough to make the next step useful.</h2>" +
+        "<p>Do not worry about knowing the perfect terminology. Describe the situation clearly and the system will help structure it.</p>" +
+        "<ul class='service-list'>" + ask + "</ul>" +
+      "</div>" +
+    "</section>" +
 
-  const title = document.createElement("h3");
-  title.className = "detail-title";
-  title.textContent = data.title;
+    "<section class='service-process'>" +
+      "<div class='service-kicker'>The path</div>" +
+      "<h2>From first message<br>to human follow-up.</h2>" +
+      "<div class='process-grid'>" + steps + "</div>" +
+    "</section>" +
 
-  const intro = document.createElement("p");
-  intro.className = "detail-intro";
-  intro.textContent = data.intro;
+    "<section class='service-cta'>" +
+      "<div>" +
+        "<h2>Ready to start this path?</h2>" +
+        "<p>" + escapeHTML(data.note) + "</p>" +
+      "</div>" +
+      "<button class='button button-primary service-start' type='button' data-key='" + escapeHTML(key) + "'>Start with this path <span>↗</span></button>" +
+    "</section>";
 
-  titleBlock.append(kicker, title, intro);
+  servicePage.classList.add("open");
+  servicePage.setAttribute("aria-hidden","false");
+  document.body.classList.add("service-open");
 
-  const fit = document.createElement("div");
-  fit.className = "detail-fit";
-  const fitLabel = document.createElement("span");
-  fitLabel.textContent = "WHO IT IS FOR";
-  const fitText = document.createElement("strong");
-  fitText.textContent = data.fit;
-  fit.append(fitLabel, fitText);
-
-  head.append(titleBlock, fit);
-
-  const body = document.createElement("div");
-  body.className = "detail-body";
-  body.append(
-    makeDetailColumn("WHAT WE CAN HELP WITH", data.coverage),
-    makeDetailColumn("HOW THE PATH WORKS", data.workflow),
-    makeDetailColumn("START WITH THESE FACTS", data.ask)
-  );
-
-  const footer = document.createElement("div");
-  footer.className = "detail-panel-footer";
-
-  const note = document.createElement("p");
-  note.className = "detail-note";
-  note.textContent = data.note;
-
-  const action = document.createElement("button");
-  action.className = "use-path";
-  action.type = "button";
-  action.innerHTML = "Start with this path <b>↘</b>";
-  action.addEventListener("click", () => {
+  const start = servicePageContent.querySelector(".service-start");
+  start.addEventListener("click",function() {
     input.value = data.start;
-    document.getElementById("start").scrollIntoView({ behavior: "smooth", block: "start" });
-    setTimeout(() => {
+    servicePage.classList.remove("open");
+    servicePage.setAttribute("aria-hidden","true");
+    document.body.classList.remove("service-open");
+    window.location.hash = "enquiry";
+    setTimeout(function() {
       input.focus();
-      input.setSelectionRange(input.value.length, input.value.length);
-    }, 450);
+      input.setSelectionRange(input.value.length,input.value.length);
+    },350);
   });
 
-  footer.append(note, action);
-  panel.append(head, body, footer);
-  detail.appendChild(panel);
+  window.scrollTo(0,0);
+}
 
-  if (shouldScroll) {
-    detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
+function closeServicePage() {
+  servicePage.classList.remove("open");
+  servicePage.setAttribute("aria-hidden","true");
+  document.body.classList.remove("service-open");
+}
+
+function route() {
+  const hash = window.location.hash.replace(/^#/,"");
+
+  if (hash.indexOf("service/") === 0) {
+    const slug = hash.split("/")[1];
+    const key = slugToKey(slug);
+    if (key) {
+      renderServicePage(key);
+      return;
+    }
+  }
+
+  closeServicePage();
+
+  if (hash === "enquiry" || hash === "services" || hash === "how-it-works" || hash === "people") {
+    const target = document.getElementById(hash);
+    if (target) {
+      setTimeout(function() {
+        target.scrollIntoView({behavior:"smooth",block:"start"});
+      },0);
+    }
+  } else {
+    window.scrollTo(0,0);
   }
 }
 
@@ -368,10 +437,10 @@ async function loadMode() {
     const data = await response.json();
 
     if (data.live_apertus) {
-      mode.textContent = "Live inference · " + data.model;
+      mode.textContent = "Apertus 1.5 · live";
       chatMode.textContent = "Apertus 1.5 · live";
     } else {
-      mode.textContent = "Local deterministic routing · demo";
+      mode.textContent = "Demo routing";
       chatMode.textContent = "Structured demo · local";
     }
   } catch {
@@ -380,49 +449,60 @@ async function loadMode() {
   }
 }
 
-document.querySelectorAll(".service-card").forEach(card => {
-  card.addEventListener("click", () => renderService(card.dataset.service, true));
+document.querySelectorAll(".quick-prompts button").forEach(function(button) {
+  button.addEventListener("click",function() {
+    input.value = button.dataset.prompt || "";
+    input.focus();
+  });
 });
 
-form.addEventListener("submit", async event => {
+form.addEventListener("submit",async function(event) {
   event.preventDefault();
+
   const message = input.value.trim();
   if (!message || sendButton.disabled) return;
 
-  addMessage(message, "user");
+  addMessage(message,"user");
   input.value = "";
   sendButton.disabled = true;
 
-  const pending = addMessage("Structuring your request…", "assistant");
+  const pending = addMessage("Structuring your request...","assistant");
 
   try {
-    const response = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, history })
+    const response = await fetch("/api/chat",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({message:message,history:history})
     });
 
     const data = await response.json();
     pending.remove();
 
     if (!response.ok) {
-      addMessage(data.detail || "The request could not be processed.", "assistant");
+      addMessage(data.detail || "The request could not be processed.","assistant");
       return;
     }
 
-    addMessage(data.answer, "assistant");
+    addMessage(data.answer,"assistant");
     addAnalysis(data);
     addResources(data.resources);
 
-    history.push({ role: "user", content: message });
-    history.push({ role: "assistant", content: data.answer });
+    history.push({role:"user",content:message});
+    history.push({role:"assistant",content:data.answer});
   } catch {
     pending.remove();
-    addMessage("The local service is unavailable. Check the running Docker container and try again.", "assistant");
+    addMessage("The local service is unavailable. Check the running container and try again.","assistant");
   } finally {
     sendButton.disabled = false;
   }
 });
 
-renderService("buy_from_china");
+window.addEventListener("hashchange",route);
+document.addEventListener("keydown",function(event) {
+  if (event.key === "Escape" && servicePage.classList.contains("open")) {
+    window.location.hash = "services";
+  }
+});
+
 loadMode();
+route();
